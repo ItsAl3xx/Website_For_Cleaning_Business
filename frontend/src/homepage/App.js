@@ -10,21 +10,25 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaSync } from 'react-icons/fa';
 
-const BeforeAfterCard = ({ beforeImage, afterImage, title }) => {
+const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div 
-      className="card-container"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      <div className={`card ${isFlipped ? 'flipped' : ''}`}>
+    <div className="card-container">
+      <div 
+        className={`card ${isFlipped ? 'flipped' : ''}`}
+        onMouseEnter={() => setIsFlipped(true)}
+        onMouseLeave={() => setIsFlipped(false)}
+        onClick={() => setIsFlipped(!isFlipped)}
+      >
         <div className="card-face card-front">
           <img src={beforeImage} alt="Before Cleaning" />
           <div className="card-label">Before</div>
+          <div className="flip-instruction">
+            <FaSync /> View After
+          </div>
         </div>
         <div className="card-face card-back">
           <img src={afterImage} alt="After Cleaning" />

@@ -246,11 +246,19 @@ const BookingSection = () => {
 };
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="App">
       <header className="header">
-        <div className="logo">Buisness Name</div>
-        <nav className="nav">
+        <div className="logo">Business Name</div>
+        <button 
+          className="mobile-menu-button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <span className="hamburger"></span>
+        </button>
+        <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
           <a href="#home">Home</a>
           <a href="#services">Services</a>
           <a href="#about">About</a>

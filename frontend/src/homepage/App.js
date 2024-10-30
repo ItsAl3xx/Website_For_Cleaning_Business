@@ -6,6 +6,11 @@ import * as Yup from 'yup';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { FaStar } from 'react-icons/fa';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -245,6 +250,39 @@ const BookingSection = () => {
   );
 };
 
+const testimonials = [
+  {
+    name: "Client 1",
+    location: "Seattle, WA",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    rating: 5
+  },
+  {
+    name: "Client 2",
+    location: "Portland, OR",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+    rating: 5
+  },
+  {
+    name: "Client 3",
+    location: "Vancouver, BC",
+    text: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+    rating: 5
+  },
+  {
+    name: "Client 4",
+    location: "Bellevue, WA",
+    text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+    rating: 5
+  },
+  {
+    name: "Client 5",
+    location: "Kirkland, WA",
+    text: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.",
+    rating: 5
+  }
+];
+
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -321,20 +359,43 @@ function App() {
 
       <section className="testimonials">
         <h2>What My Clients Say</h2>
-        <div className="testimonial-cards">
-          <div className="testimonial-card">
-            <p>"Sarah's attention to detail is amazing. My home has never looked better!"</p>
-            <span>Emily R.</span>
-          </div>
-          <div className="testimonial-card">
-            <p>"Reliable, thorough, and friendly. I highly recommend Sarah's services."</p>
-            <span>Michael T.</span>
-          </div>
-          <div className="testimonial-card">
-            <p>"The deep cleaning service was exactly what my home needed. Thank you, Sarah!"</p>
-            <span>Laura S.</span>
-          </div>
-        </div>
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          pagination={{ clickable: true }}
+          className="testimonial-slider"
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  {[...Array(5)].map((_, i) => (
+                    <FaStar 
+                      key={i} 
+                      className={i < testimonial.rating ? 'star-filled' : 'star-empty'} 
+                    />
+                  ))}
+                </div>
+                <p className="testimonial-text">{testimonial.text}</p>
+                <div className="testimonial-author">
+                  <div className="testimonial-info">
+                    <span className="testimonial-name">{testimonial.name}</span>
+                    <span className="testimonial-location">{testimonial.location}</span>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
       <BookingSection />

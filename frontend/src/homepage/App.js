@@ -287,6 +287,141 @@ const testimonials = [
   }
 ];
 
+// Add new component after the testimonials section and before BookingSection
+const TrustIndicators = () => (
+  <section className="trust-indicators">
+    <h2>Why Choose Me</h2>
+    <div className="trust-grid">
+      <div className="trust-item">
+        <div className="trust-icon">⭐</div>
+        <h3>Corporate Experience</h3>
+        <p>Trusted by tech giants including Google, IMAX, and Snapchat for their office cleaning needs</p>
+      </div>
+      <div className="trust-item">
+        <div className="trust-icon">🏆</div>
+        <h3>10+ Years Experience</h3>
+        <p>A decade of professional cleaning expertise in both corporate offices and residential spaces</p>
+      </div>
+      <div className="trust-item">
+        <div className="trust-icon">✨</div>
+        <h3>Flexible Solutions</h3>
+        <p>Choice between my professional-grade supplies or your preferred cleaning products</p>
+      </div>
+      <div className="trust-item">
+        <div className="trust-icon">🤝</div>
+        <h3>Personalized Service</h3>
+        <p>Dedicated one-on-one attention with consistent quality from the same trusted cleaner</p>
+      </div>
+    </div>
+  </section>
+);
+
+const ServiceArea = () => (
+  <section className="service-area">
+    <h2>Service Areas</h2>
+    <div className="area-content">
+      <div className="area-text">
+        <h3>Proudly Serving</h3>
+        <ul className="area-list">
+          <li>Seattle</li>
+          <li>Bellevue</li>
+          <li>Kirkland</li>
+          <li>Redmond</li>
+          <li>Sammamish</li>
+        </ul>
+        <p className="area-note">* Additional areas available upon request</p>
+      </div>
+      <div className="area-map">
+        {/* Replace with actual map component or image */}
+        <img src="/path-to-service-area-map.jpg" alt="Service Area Map" />
+      </div>
+    </div>
+  </section>
+);
+
+const ProcessSection = () => (
+  <section className="process-section">
+    <h2>How It Works</h2>
+    <div className="process-steps">
+      <div className="process-step">
+        <div className="step-number">1</div>
+        <h3>Book Online</h3>
+        <p>Schedule your cleaning service or request a quote through our easy online form</p>
+      </div>
+      <div className="process-step">
+        <div className="step-number">2</div>
+        <h3>Confirmation</h3>
+        <p>Receive booking confirmation and pre-cleaning checklist via email</p>
+      </div>
+      <div className="process-step">
+        <div className="step-number">3</div>
+        <h3>Professional Service</h3>
+        <p>Experience thorough, professional cleaning of your space</p>
+      </div>
+      <div className="process-step">
+        <div className="step-number">4</div>
+        <h3>Satisfaction Check</h3>
+        <p>Provide feedback and book your next appointment</p>
+      </div>
+    </div>
+  </section>
+);
+
+const FAQ = () => (
+  <section className="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div className="faq-grid">
+      <details className="faq-item">
+        <summary>How long does a typical cleaning take?</summary>
+        <p>A standard cleaning typically takes 2-4 hours, depending on the size and condition of your space.</p>
+      </details>
+      <details className="faq-item">
+        <summary>Do I need to provide cleaning supplies?</summary>
+        <p>No, I bring all necessary professional-grade cleaning supplies and equipment.</p>
+      </details>
+      <details className="faq-item">
+        <summary>What is your cancellation policy?</summary>
+        <p>Cancellations made 24 hours or more in advance receive a full refund.</p>
+      </details>
+      <details className="faq-item">
+        <summary>Are you pet friendly?</summary>
+        <p>Yes! I love pets and am comfortable working in homes with animals.</p>
+      </details>
+    </div>
+  </section>
+);
+
+const PricingGuide = () => (
+  <section className="pricing-guide">
+    <h2>Pricing Guide</h2>
+    <div className="pricing-disclaimer">
+      <p>Starting prices for reference. Final quote may vary based on specific requirements.</p>
+    </div>
+    <div className="pricing-grid">
+      <div className="pricing-item">
+        <h3>Studio/1 Bedroom</h3>
+        <p className="price">From $120</p>
+        <span className="duration">2-3 hours</span>
+      </div>
+      <div className="pricing-item">
+        <h3>2-3 Bedrooms</h3>
+        <p className="price">From $160</p>
+        <span className="duration">3-4 hours</span>
+      </div>
+      <div className="pricing-item">
+        <h3>Deep Cleaning</h3>
+        <p className="price">From $200</p>
+        <span className="duration">4-6 hours</span>
+      </div>
+      <div className="pricing-item">
+        <h3>Move In/Out</h3>
+        <p className="price">From $250</p>
+        <span className="duration">5-7 hours</span>
+      </div>
+    </div>
+  </section>
+);
+
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -402,6 +537,11 @@ function App() {
         </Swiper>
       </section>
 
+      <TrustIndicators />
+      <ServiceArea />
+      <ProcessSection />
+      <FAQ />
+      <PricingGuide />
       <BookingSection />
 
       <footer className="footer">

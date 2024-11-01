@@ -321,19 +321,49 @@ const ServiceArea = () => (
     <h2>Service Areas</h2>
     <div className="area-content">
       <div className="area-text">
-        <h3>Proudly Serving</h3>
-        <ul className="area-list">
-          <li>Seattle</li>
-          <li>Bellevue</li>
-          <li>Kirkland</li>
-          <li>Redmond</li>
-          <li>Sammamish</li>
-        </ul>
-        <p className="area-note">* Additional areas available upon request</p>
+        <h3>Areas Served</h3>
+        <div className="area-regions">
+          <div className="region">
+            <h4>South Bay</h4>
+            <ul className="area-list">
+              <li>Manhattan Beach</li>
+              <li>Hermosa Beach</li>
+              <li>Redondo Beach</li>
+              <li>Torrance</li>
+              <li>Rancho Palos Verdes</li>
+              <li>Palos Verdes Estates</li>
+            </ul>
+          </div>
+          <div className="region">
+            <h4>West Los Angeles</h4>
+            <ul className="area-list">
+              <li>Playa Vista</li>
+              <li>Marina del Rey</li>
+              <li>El Segundo</li>
+              <li>Westchester</li>
+              <li>Culver City</li>
+              <li>Santa Monica</li>
+            </ul>
+          </div>
+        </div>
+        <p className="area-note">* Additional areas may be available upon request. Travel fee may apply for locations outside the primary service area.</p>
       </div>
       <div className="area-map">
-        {/* Replace with actual map component or image */}
-        <img src="/path-to-service-area-map.jpg" alt="Service Area Map" />
+        {/* Replace this with an actual map image showing service radius */}
+        <img 
+          src="/service-area-map.jpg" 
+          alt="Service Area Map showing South Bay and West Los Angeles coverage" 
+        />
+        <div className="map-legend">
+          <div className="legend-item">
+            <span className="legend-color primary"></span>
+            <span>Primary Service Area</span>
+          </div>
+          <div className="legend-item">
+            <span className="legend-color extended"></span>
+            <span>Extended Service Area</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

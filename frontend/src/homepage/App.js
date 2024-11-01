@@ -11,6 +11,8 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { FaStar, FaSync } from 'react-icons/fa';
+import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -316,58 +318,81 @@ const TrustIndicators = () => (
   </section>
 );
 
-const ServiceArea = () => (
-  <section className="service-area">
-    <h2>Service Areas</h2>
-    <div className="area-content">
-      <div className="area-text">
-        <h3>Areas Served</h3>
-        <div className="area-regions">
-          <div className="region">
-            <h4>South Bay</h4>
-            <ul className="area-list">
-              <li>Manhattan Beach</li>
-              <li>Hermosa Beach</li>
-              <li>Redondo Beach</li>
-              <li>Torrance</li>
-              <li>Rancho Palos Verdes</li>
-              <li>Palos Verdes Estates</li>
-            </ul>
+const ServiceArea = () => {
+  // Center coordinates for South Bay and Los Angeles areas
+  const southBayCenter = [33.8853, -118.4054];
+  const losAngelesCenter = [34.0522, -118.2437];
+  
+  return (
+    <section className="service-area">
+      <h2>Service Areas</h2>
+      <div className="area-content">
+        <div className="area-text">
+          <h3>Areas Served</h3>
+          <div className="area-regions">
+            <div className="region">
+              <h4>South Bay</h4>
+              <ul className="area-list">
+                <li>Manhattan Beach</li>
+                <li>Hermosa Beach</li>
+                <li>Redondo Beach</li>
+                <li>Torrance</li>
+                <li>Rancho Palos Verdes</li>
+                <li>Palos Verdes Estates</li>
+              </ul>
+            </div>
+            <div className="region">
+              <h4>Los Angeles Area</h4>
+              <ul className="area-list">
+                <li>Playa Vista</li>
+                <li>Marina del Rey</li>
+                <li>El Segundo</li>
+                <li>Westchester</li>
+                <li>Culver City</li>
+                <li>Downtown LA</li>
+              </ul>
+            </div>
           </div>
-          <div className="region">
-            <h4>West Los Angeles</h4>
-            <ul className="area-list">
-              <li>Playa Vista</li>
-              <li>Marina del Rey</li>
-              <li>El Segundo</li>
-              <li>Westchester</li>
-              <li>Culver City</li>
-              <li>Santa Monica</li>
-            </ul>
+          <p className="area-note">* Travel fee may apply depending on location</p>
+        </div>
+        <div className="area-map">
+          <MapContainer 
+            center={[33.9800, -118.3200]} // Centered between both service areas
+            zoom={10} 
+            style={{ height: '400px', width: '100%', borderRadius: '12px' }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {/* South Bay service area circle */}
+            <Circle
+              center={southBayCenter}
+              pathOptions={{ color: '#4299e1', fillColor: '#4299e1', fillOpacity: 0.2 }}
+              radius={10000} // 10km radius
+            >
+              <Popup>South Bay Service Area</Popup>
+            </Circle>
+            {/* Los Angeles service area circle */}
+            <Circle
+              center={losAngelesCenter}
+              pathOptions={{ color: '#4299e1', fillColor: '#4299e1', fillOpacity: 0.2 }}
+              radius={10000} // 10km radius
+            >
+              <Popup>Los Angeles Service Area</Popup>
+            </Circle>
+          </MapContainer>
+          <div className="map-legend">
+            <div className="legend-item">
+              <span className="legend-color primary"></span>
+              <span>Service Areas</span>
+            </div>
           </div>
         </div>
-        <p className="area-note">* Additional areas may be available upon request. Travel fee may apply for locations outside the primary service area.</p>
       </div>
-      <div className="area-map">
-        {/* Replace this with an actual map image showing service radius */}
-        <img 
-          src="/service-area-map.jpg" 
-          alt="Service Area Map showing South Bay and West Los Angeles coverage" 
-        />
-        <div className="map-legend">
-          <div className="legend-item">
-            <span className="legend-color primary"></span>
-            <span>Primary Service Area</span>
-          </div>
-          <div className="legend-item">
-            <span className="legend-color extended"></span>
-            <span>Extended Service Area</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const ProcessSection = () => (
   <section className="process-section">

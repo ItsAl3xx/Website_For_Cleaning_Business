@@ -1279,6 +1279,8 @@ body {
 
 .area-map {
   position: relative;
+  height: 100%;
+  min-height: 400px;
 }
 
 .area-map img {
@@ -1294,6 +1296,7 @@ body {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1336,5 +1339,198 @@ body {
     bottom: auto;
     right: auto;
     margin-top: 1rem;
+  }
+}
+
+/* Update existing media queries and add new ones */
+
+/* General mobile adjustments */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .header {
+    padding: 1rem 3%;
+    width: 94%;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 6rem 3% 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  /* Trust indicators */
+  .trust-indicators {
+    padding: 3rem 5%;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .trust-item {
+    padding: 1.5rem;
+  }
+
+  /* Service Area section */
+  .service-area {
+    padding: 3rem 5%;
+  }
+
+  .area-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .area-map {
+    height: 300px; /* Shorter height on mobile */
+    margin-bottom: 1rem;
+  }
+
+  /* Map container specific */
+  .leaflet-container {
+    height: 300px !important;
+  }
+
+  /* Areas list */
+  .area-regions {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .region {
+    margin-bottom: 1rem;
+  }
+
+  /* Process section */
+  .process-section {
+    padding: 3rem 5%;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* FAQ section */
+  .faq-section {
+    padding: 3rem 5%;
+  }
+
+  .faq-item summary {
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  /* Pricing section */
+  .pricing-guide {
+    padding: 3rem 5%;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pricing-item {
+    padding: 1.5rem;
+  }
+}
+
+/* iPhone specific adjustments */
+@media screen and (max-width: 428px) { /* iPhone 13 Pro Max width */
+  /* Further reduce padding */
+  .hero, 
+  .trust-indicators,
+  .service-area,
+  .process-section,
+  .faq-section,
+  .pricing-guide {
+    padding: 2.5rem 4%;
+  }
+
+  /* Adjust font sizes */
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Adjust spacing */
+  .trust-grid,
+  .process-steps,
+  .pricing-grid {
+    margin-top: 1.5rem;
+  }
+
+  /* Make buttons more touch-friendly */
+  .submit-button,
+  .book-now,
+  .get-quote {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 44px; /* iOS minimum touch target */
+  }
+
+  /* Form inputs */
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  .date-picker {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    padding: 0.8rem;
+    min-height: 44px;
+  }
+
+  /* Map adjustments */
+  .area-map {
+    height: 250px;
+  }
+
+  .leaflet-container {
+    height: 250px !important;
+  }
+
+  /* Legend adjustments */
+  .map-legend {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Handle iPhone landscape */
+@media screen and (max-height: 428px) and (orientation: landscape) {
+  .hero {
+    padding: 4rem 4% 2rem;
+  }
+
+  .area-map {
+    height: 200px;
+  }
+
+  .leaflet-container {
+    height: 200px !important;
+  }
+}
+
+/* Ensure touch targets are large enough */
+@media (hover: none) and (pointer: coarse) {
+  /* Make all clickable elements at least 44x44px for touch */
+  .nav a,
+  button,
+  .footer-links a,
+  .social-links a {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

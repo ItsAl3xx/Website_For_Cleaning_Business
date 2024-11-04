@@ -1597,3 +1597,51 @@ body {
   background-color: #f7fafc !important;
   color: #4299e1 !important;
 }
+
+/* Add this to your existing CSS */
+.sticky-book-now {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background-color: #4299e1;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none; /* Hidden by default, shown after scroll */
+}
+
+.sticky-book-now.visible {
+  display: block;
+  animation: slideIn 0.3s ease;
+}
+
+.sticky-book-now:hover {
+  background-color: #3182ce;
+  transform: translateY(-2px);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .sticky-book-now {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

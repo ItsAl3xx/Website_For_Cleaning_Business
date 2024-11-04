@@ -107,7 +107,7 @@ const BookingSection = () => {
   };
 
   return (
-    <section className="booking">
+    <section id="booking" className="booking">
       <h2>Book a Cleaning Service</h2>
       <div className="booking-container">
         <Formik
@@ -530,6 +530,12 @@ function App() {
         </div>
       </section>
 
+      <PricingGuide />
+
+      <TrustIndicators />
+
+      <BookingSection />
+
       <section className="before-after">
         <h2>Transformation Gallery</h2>
         <div className="before-after-grid">
@@ -550,6 +556,10 @@ function App() {
           />
         </div>
       </section>
+
+      <ProcessSection />
+
+      <ServiceArea />
 
       <section className="testimonials">
         <h2>What My Clients Say</h2>
@@ -592,12 +602,7 @@ function App() {
         </Swiper>
       </section>
 
-      <TrustIndicators />
-      <ServiceArea />
-      <ProcessSection />
       <FAQ />
-      <PricingGuide />
-      <BookingSection />
 
       <footer className="footer">
         <div className="footer-content">

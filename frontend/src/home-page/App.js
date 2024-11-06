@@ -13,6 +13,8 @@ import 'swiper/css/pagination';
 import { FaStar, FaSync } from 'react-icons/fa';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { Routes, Route, Link } from 'react-router-dom';
+import ServicesPage from '../services-page/service-page';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -491,8 +493,8 @@ function App() {
           <span className="hamburger"></span>
         </button>
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
+          <Link to="/">Home</Link>
+          <Link to="/services">Services</Link>
           <a href="#about">About</a>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
@@ -500,109 +502,108 @@ function App() {
         <button className="book-now">Book Now</button>
       </header>
 
-      <section className="hero">
-        <h1>Professional Cleaning </h1>
-        <p>Bringing sparkle to your space, one room at a time</p>
-        <button className="get-quote">Get a Quote</button>
-      </section>
-
-      <section className="services">
-        <h2>My Services</h2>
-        <div className="service-cards">
-          <div className="service-card">
-            <div className="icon">🏠</div>
-            <h3>Residential Cleaning</h3>
-            <p>Thorough home cleaning tailored to your needs</p>
-            <button>Learn More</button>
-          </div>
-          <div className="service-card">
-            <div className="icon">✨</div>
-            <h3>Deep Cleaning</h3>
-            <p>Intensive cleaning for those hard-to-reach areas</p>
-            <button>Learn More</button>
-          </div>
-          <div className="service-card">
-            <div className="icon">🔄</div>
-            <h3>Move-in/Move-out Cleaning</h3>
-            <p>Ensure your new or old space is spotless</p>
-            <button>Learn More</button>
-          </div>
-        </div>
-      </section>
-
-      <PricingGuide />
-
-      <TrustIndicators />
-
-      <BookingSection />
-
-      <section className="before-after">
-        <h2>Transformation Gallery</h2>
-        <div className="before-after-grid">
-          <BeforeAfterCard 
-            beforeImage="/path-to-before-image1.jpg"
-            afterImage="/path-to-after-image1.jpg"
-            title="Kitchen Deep Clean"
-          />
-          <BeforeAfterCard 
-            beforeImage="/path-to-before-image2.jpg"
-            afterImage="/path-to-after-image2.jpg"
-            title="Living Room Transformation"
-          />
-          <BeforeAfterCard 
-            beforeImage="/path-to-before-image3.jpg"
-            afterImage="/path-to-after-image3.jpg"
-            title="Bathroom Makeover"
-          />
-        </div>
-      </section>
-
-      <ProcessSection />
-
-      <ServiceArea />
-
-      <section className="testimonials">
-        <h2>What My Clients Say</h2>
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-          }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          pagination={{ clickable: true }}
-          className="testimonial-slider"
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
-              <div className="testimonial-card">
-                <div className="testimonial-rating">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar 
-                      key={i} 
-                      className={i < testimonial.rating ? 'star-filled' : 'star-empty'} 
-                    />
-                  ))}
+      <Routes>
+        <Route path="/" element={
+          // Move all your existing homepage content into this element
+          <main>
+            <section className="hero">
+              <h1>Professional Cleaning </h1>
+              <p>Bringing sparkle to your space, one room at a time</p>
+              <button className="get-quote">Get a Quote</button>
+            </section>
+            <section className="services">
+              <h2>My Services</h2>
+              <div className="service-cards">
+                <div className="service-card">
+                  <div className="icon">🏠</div>
+                  <h3>Residential Cleaning</h3>
+                  <p>Thorough home cleaning tailored to your needs</p>
+                  <button>Learn More</button>
                 </div>
-                <p className="testimonial-text">{testimonial.text}</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-info">
-                    <span className="testimonial-name">{testimonial.name}</span>
-                    <span className="testimonial-location">{testimonial.location}</span>
-                  </div>
+                <div className="service-card">
+                  <div className="icon">✨</div>
+                  <h3>Deep Cleaning</h3>
+                  <p>Intensive cleaning for those hard-to-reach areas</p>
+                  <button>Learn More</button>
+                </div>
+                <div className="service-card">
+                  <div className="icon">🔄</div>
+                  <h3>Move-in/Move-out Cleaning</h3>
+                  <p>Ensure your new or old space is spotless</p>
+                  <button>Learn More</button>
                 </div>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
-
-      <FAQ />
+            </section>
+            <PricingGuide />
+            <TrustIndicators />
+            <BookingSection />
+            <section className="before-after">
+              <h2>Transformation Gallery</h2>
+              <div className="before-after-grid">
+                <BeforeAfterCard 
+                  beforeImage="/path-to-before-image1.jpg"
+                  afterImage="/path-to-after-image1.jpg"
+                  title="Kitchen Deep Clean"
+                />
+                <BeforeAfterCard 
+                  beforeImage="/path-to-before-image2.jpg"
+                  afterImage="/path-to-after-image2.jpg"
+                  title="Living Room Transformation"
+                />
+                <BeforeAfterCard 
+                  beforeImage="/path-to-before-image3.jpg"
+                  afterImage="/path-to-after-image3.jpg"
+                  title="Bathroom Makeover"
+                />
+              </div>
+            </section>
+            <ProcessSection />
+            <ServiceArea />
+            <section className="testimonials">
+              <h2>What My Clients Say</h2>
+              <Swiper
+                modules={[Autoplay, Pagination]}
+                spaceBetween={30}
+                slidesPerView={1}
+                breakpoints={{
+                  640: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 }
+                }}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                pagination={{ clickable: true }}
+                className="testimonial-slider"
+              >
+                {testimonials.map((testimonial, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="testimonial-card">
+                      <div className="testimonial-rating">
+                        {[...Array(5)].map((_, i) => (
+                          <FaStar 
+                            key={i} 
+                            className={i < testimonial.rating ? 'star-filled' : 'star-empty'} 
+                          />
+                        ))}
+                      </div>
+                      <p className="testimonial-text">{testimonial.text}</p>
+                      <div className="testimonial-author">
+                        <div className="testimonial-info">
+                          <span className="testimonial-name">{testimonial.name}</span>
+                          <span className="testimonial-location">{testimonial.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </section>
+            <FAQ />
+          </main>
+        } />
+        <Route path="/services" element={<ServicesPage />} />
+      </Routes>
 
       <footer className="footer">
         <div className="footer-content">

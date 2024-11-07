@@ -15,6 +15,7 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
+import AboutPage from '../about-page/about-page';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -495,7 +496,7 @@ function App() {
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
           <Link to="/">Home</Link>
           <Link to="/services">Services</Link>
-          <a href="#about">About</a>
+          <Link to="/about">About</Link>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -603,6 +604,7 @@ function App() {
           </main>
         } />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
 
       <footer className="footer">

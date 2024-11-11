@@ -484,6 +484,11 @@ const PricingGuide = () => (
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Close mobile menu when clicking a link
+  const handleMobileNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div className="App">
       <header className="header">
@@ -491,17 +496,23 @@ function App() {
         <button 
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          <span className="hamburger"></span>
+          <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </button>
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
-          <Link to="/">Home</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/about">About</Link>
-          <a href="#gallery">Gallery</a>
-          <Link to="/contact">Contact</Link>
+          <Link to="/" onClick={handleMobileNavClick}>Home</Link>
+          <Link to="/services" onClick={handleMobileNavClick}>Services</Link>
+          <Link to="/about" onClick={handleMobileNavClick}>About</Link>
+          <a href="#gallery" onClick={handleMobileNavClick}>Gallery</a>
+          <Link to="/contact" onClick={handleMobileNavClick}>Contact</Link>
+          <button className="mobile-book-now">Book Now</button>
         </nav>
-        <button className="book-now">Book Now</button>
+        <button className="book-now desktop-only">Book Now</button>
       </header>
 
       <Routes>

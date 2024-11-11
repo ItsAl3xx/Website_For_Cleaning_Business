@@ -16,6 +16,7 @@ import 'leaflet/dist/leaflet.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
 import AboutPage from '../about-page/about-page';
+import ContactPage from '../contact-page/contact-page';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -498,7 +499,7 @@ function App() {
           <Link to="/services">Services</Link>
           <Link to="/about">About</Link>
           <a href="#gallery">Gallery</a>
-          <a href="#contact">Contact</a>
+          <Link to="/contact">Contact</Link>
         </nav>
         <button className="book-now">Book Now</button>
       </header>
@@ -605,6 +606,7 @@ function App() {
         } />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
 
       <footer className="footer">

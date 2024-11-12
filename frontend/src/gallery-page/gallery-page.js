@@ -16,6 +16,33 @@ const GalleryPage = () => {
       description: "Complete kitchen transformation with detailed cleaning of all surfaces",
       category: "Kitchen"
     },
+
+    {
+      id: 2,
+      beforeImage: "https://via.placeholder.com/400x300",
+      afterImage: "https://via.placeholder.com/400x300",
+      title: "Living Room Refresh",
+      description: "Transform your living space with a fresh coat of paint and organized furniture",
+      category: "Living Room"
+    },
+
+    {
+      id: 3,
+      beforeImage: "https://via.placeholder.com/400x300",
+      afterImage: "https://via.placeholder.com/400x300",
+      title: "Bathroom Deep Clean",
+      description: "Complete bathroom transformation with detailed cleaning of all surfaces",
+      category: "Bathroom"
+    },
+
+    {
+      id: 4,
+      beforeImage: "https://via.placeholder.com/400x300",
+      afterImage: "https://via.placeholder.com/400x300",
+      title: "Bedroom Refresh",
+      description: "Transform your bedroom with a fresh coat of paint and organized furniture",
+      category: "Bedroom"
+    },
     // Add more items here for testing
   ];
 

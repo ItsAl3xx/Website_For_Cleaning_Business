@@ -1,8 +1,17 @@
+:root {
+  --primary-color: #1e3a8a; /* Dark navy blue to match header */
+  --secondary-color: #3b82f6; /* Lighter blue for accents */
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --white: #ffffff;
+  --background-light: #f8fafc;
+}
+
 .gallery-page {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .gallery-header {
@@ -12,14 +21,14 @@
 }
 
 .gallery-header h1 {
-  color: #1a237e;
+  color: var(--primary-color);
   font-size: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .gallery-intro {
-  color: #546e7a;
+  color: var(--text-light);
   font-size: 1.1rem;
   max-width: 800px;
   margin: 0 auto;
@@ -38,8 +47,8 @@
   padding: 0.8rem 1.8rem;
   border: none;
   border-radius: 8px;
-  background-color: #f5f5f5;
-  color: #37474f;
+  background-color: var(--background-light);
+  color: var(--text-dark);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -47,13 +56,13 @@
 }
 
 .filter-btn:hover {
-  background-color: #e0e0e0;
+  background-color: #e2e8f0;
 }
 
 .filter-btn.active {
-  background-color: #1a237e;
-  color: white;
-  box-shadow: 0 4px 6px rgba(26, 35, 126, 0.2);
+  background-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2);
 }
 
 .gallery-grid {
@@ -64,11 +73,12 @@
 }
 
 .gallery-card {
-  background: white;
+  background: var(--white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+  border: 1px solid #e2e8f0;
 }
 
 .gallery-card:hover {
@@ -76,7 +86,7 @@
 }
 
 .card-title {
-  color: #1a237e;
+  color: var(--primary-color);
   font-size: 1.25rem;
   margin: 1.5rem;
   font-weight: 600;
@@ -112,17 +122,18 @@
 }
 
 .overlay-text {
-  color: white;
+  color: var(--white);
   font-size: 0.9rem;
   font-weight: 500;
   padding: 4px 12px;
   border-radius: 4px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--primary-color);
+  opacity: 0.9;
 }
 
 .card-description {
   padding: 1.5rem;
-  color: #546e7a;
+  color: var(--text-light);
   font-size: 0.95rem;
   line-height: 1.6;
 }

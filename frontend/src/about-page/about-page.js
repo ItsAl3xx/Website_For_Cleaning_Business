@@ -67,17 +67,12 @@ const AboutPage = () => {
       </section>
 
       <section className="team-section">
-        <h2>Meet Our Leadership</h2>
+        <h2>Get to Know Us</h2>
         <div className="team-grid">
           <div className="team-member">
             <div className="team-photo-placeholder"></div>
-            <h3>Sarah Johnson</h3>
-            <p>Founder & CEO</p>
-          </div>
-          <div className="team-member">
-            <div className="team-photo-placeholder"></div>
-            <h3>Michael Chen</h3>
-            <p>Operations Director</p>
+            <h3>Basilia</h3>
+            <p>Cleaning Specialist</p>
           </div>
         </div>
       </section>

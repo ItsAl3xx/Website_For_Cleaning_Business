@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 import { FaStar, FaSync } from 'react-icons/fa';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
 import AboutPage from '../about-page/about-page';
 import ContactPage from '../contact-page/contact-page';
@@ -505,11 +505,11 @@ function App() {
           </div>
         </button>
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
-          <Link to="/" onClick={handleMobileNavClick}>Home</Link>
-          <Link to="/services" onClick={handleMobileNavClick}>Services</Link>
-          <Link to="/about" onClick={handleMobileNavClick}>About</Link>
-          <a href="#gallery" onClick={handleMobileNavClick}>Gallery</a>
-          <Link to="/contact" onClick={handleMobileNavClick}>Contact</Link>
+          <NavLink to="/" onClick={handleMobileNavClick} end>Home</NavLink>
+          <NavLink to="/services" onClick={handleMobileNavClick}>Services</NavLink>
+          <NavLink to="/about" onClick={handleMobileNavClick}>About</NavLink>
+          <NavLink to="/gallery" onClick={handleMobileNavClick}>Gallery</NavLink>
+          <NavLink to="/contact" onClick={handleMobileNavClick}>Contact</NavLink>
           <button className="mobile-book-now">Book Now</button>
         </nav>
         <button className="book-now desktop-only">Book Now</button>

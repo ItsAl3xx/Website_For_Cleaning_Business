@@ -17,6 +17,7 @@ import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
 import AboutPage from '../about-page/about-page';
 import ContactPage from '../contact-page/contact-page';
+import GalleryPage from '../gallery-page/gallery-page';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -617,6 +618,7 @@ function App() {
         } />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
 

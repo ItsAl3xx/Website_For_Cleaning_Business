@@ -1,48 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './gallery-page.css';
 
 const GalleryPage = () => {
-  // Sample data - replace with real images later
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', 'Kitchen', 'Living Room', 'Bathroom', 'Bedroom'];
+  
+  // Sample data - replace image paths with your actual images later
   const galleryItems = [
     {
       id: 1,
-      beforeImage: "/path-to-before-image1.jpg",
-      afterImage: "/path-to-after-image1.jpg",
+      beforeImage: "https://via.placeholder.com/400x300",
+      afterImage: "https://via.placeholder.com/400x300",
       title: "Kitchen Deep Clean",
-      description: "Complete kitchen transformation"
+      description: "Complete kitchen transformation with detailed cleaning of all surfaces",
+      category: "Kitchen"
     },
-    {
-      id: 2,
-      beforeImage: "/path-to-before-image2.jpg",
-      afterImage: "/path-to-after-image2.jpg",
-      title: "Living Room Makeover",
-      description: "Thorough living room cleaning"
-    },
-    // Add more items as needed
+    // Add more items here for testing
   ];
+
+  const filteredItems = selectedCategory === 'All' 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === selectedCategory);
 
   return (
     <div className="gallery-page">
-      <h1>Cleaning Transformations</h1>
-      <p className="gallery-intro">
-        Browse through our before and after cleaning transformations to see the quality of our work.
-      </p>
-      
+      <div className="gallery-header">
+        <h1>Our Cleaning Transformations</h1>
+        <p className="gallery-intro">
+          Witness the power of professional cleaning through our before and after transformations
+        </p>
+      </div>
+
+      <div className="category-filter">
+        {categories.map(category => (
+          <button
+            key={category}
+            className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       <div className="gallery-grid">
-        {galleryItems.map(item => (
-          <div key={item.id} className="gallery-item">
-            <h3>{item.title}</h3>
-            <div className="image-comparison">
-              <div className="before-image">
-                <h4>Before</h4>
+        {filteredItems.map(item => (
+          <div key={item.id} className="gallery-card">
+            <h3 className="card-title">{item.title}</h3>
+            <div className="image-container">
+              <div className="image-wrapper before">
                 <img src={item.beforeImage} alt={`Before ${item.title}`} />
+                <div className="image-overlay">
+                  <span className="overlay-text">Before</span>
+                </div>
               </div>
-              <div className="after-image">
-                <h4>After</h4>
+              <div className="image-wrapper after">
                 <img src={item.afterImage} alt={`After ${item.title}`} />
+                <div className="image-overlay">
+                  <span className="overlay-text">After</span>
+                </div>
               </div>
             </div>
-            <p className="description">{item.description}</p>
+            <p className="card-description">{item.description}</p>
           </div>
         ))}
       </div>

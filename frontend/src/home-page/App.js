@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import DatePicker from 'react-datepicker';
 import { Formik, Form, Field } from 'formik';
@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 import { FaStar, FaSync } from 'react-icons/fa';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Routes, Route, Link, NavLink } from 'react-router-dom';
+import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
 import AboutPage from '../about-page/about-page';
 import ContactPage from '../contact-page/contact-page';
@@ -484,6 +484,12 @@ const PricingGuide = () => (
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Add this useEffect to handle scroll restoration
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // Close mobile menu when clicking a link
   const handleMobileNavClick = () => {

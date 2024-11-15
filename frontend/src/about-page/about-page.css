@@ -154,6 +154,30 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.approach-card {
+  text-align: center;
+  transition: transform 0.2s ease;
+  padding: 1.5rem;
+}
+
+.approach-card:hover {
+  transform: translateY(-3px);
+}
+
+.approach-card h3 {
+  color: #2c5282;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.approach-card p {
+  color: #4a5568;
+  line-height: 1.6;
 }
 
 /* CTA Section */

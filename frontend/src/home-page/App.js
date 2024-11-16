@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 import { FaStar, FaSync } from 'react-icons/fa';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
+import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
 import AboutPage from '../about-page/about-page';
 import ContactPage from '../contact-page/contact-page';
@@ -49,11 +49,9 @@ const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
 
 const BookingSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
   phone: Yup.string().required('Phone number is required'),
   address: Yup.string().required('Address is required'),
   serviceType: Yup.string().required('Please select a service type'),
-  appointmentType: Yup.string().required('Please select appointment type'),
   message: Yup.string(),
 });
 
@@ -113,16 +111,16 @@ const BookingSection = () => {
 
   return (
     <section id="booking" className="booking">
-      <h2>Book a Cleaning Service</h2>
+      <h2>Schedule Your Free Assessment</h2>
+      <p className="booking-subtitle">Request an in-home evaluation to get your personalized cleaning quote</p>
+      
       <div className="booking-container">
         <Formik
           initialValues={{
             name: '',
-            email: '',
             phone: '',
             address: '',
             serviceType: '',
-            appointmentType: '',
             message: '',
           }}
           validationSchema={BookingSchema}
@@ -137,16 +135,6 @@ const BookingSection = () => {
                   className={errors.name && touched.name ? 'error' : ''}
                 />
                 {errors.name && touched.name && <div className="error-message">{errors.name}</div>}
-              </div>
-
-              <div className="form-group">
-                <Field
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  className={errors.email && touched.email ? 'error' : ''}
-                />
-                {errors.email && touched.email && <div className="error-message">{errors.email}</div>}
               </div>
 
               <div className="form-group">
@@ -178,15 +166,6 @@ const BookingSection = () => {
               </div>
 
               <div className="form-group">
-                <Field as="select" name="appointmentType" className="select-input">
-                  <option value="">Select Appointment Type</option>
-                  <option value="cleaning">Direct Booking</option>
-                  <option value="quote">Request Quote</option>
-                </Field>
-                {errors.appointmentType && touched.appointmentType && <div className="error-message">{errors.appointmentType}</div>}
-              </div>
-
-              <div className="form-group">
                 <DatePicker
                   selected={selectedDate}
                   onChange={date => setSelectedDate(date)}
@@ -195,7 +174,7 @@ const BookingSection = () => {
                     return day !== 0 && day !== 6 && !isDateUnavailable(date);
                   }}
                   minDate={new Date()}
-                  placeholderText="Select Preferred Date"
+                  placeholderText="Preferred Assessment Date"
                   className="date-picker"
                   dateFormat="MMMM d, yyyy"
                   required
@@ -206,13 +185,13 @@ const BookingSection = () => {
                 <Field
                   as="textarea"
                   name="message"
-                  placeholder="Additional Notes or Special Requests"
+                  placeholder="Tell us about your cleaning needs (Optional)"
                   className="textarea-input"
                 />
               </div>
 
               <button type="submit" disabled={isSubmitting} className="submit-button">
-                {isSubmitting ? 'Submitting...' : 'Book Appointment'}
+                {isSubmitting ? 'Submitting...' : 'Schedule Free Assessment'}
               </button>
             </Form>
           )}
@@ -220,7 +199,7 @@ const BookingSection = () => {
 
         <div className="booking-sidebar">
           <div className="calendar-container">
-            <h3>Availability Calendar</h3>
+            <h3>Available Assessment Times</h3>
             <Calendar
               tileClassName={getTileClassName}
               minDate={new Date()}
@@ -247,12 +226,13 @@ const BookingSection = () => {
           </div>
 
           <div className="info-card">
-            <h3>Booking Information</h3>
+            <h3>Assessment Information</h3>
             <ul>
-              <li>Appointments available Monday-Friday</li>
-              <li>Weekend appointments upon special request</li>
-              <li>Minimum 24 hours notice required</li>
-              <li>Free quotes available</li>
+              <li>Free in-home evaluation</li>
+              <li>Personalized quote based on your needs</li>
+              <li>Available Monday-Friday</li>
+              <li>Weekend appointments upon request</li>
+              <li>No obligation quote</li>
             </ul>
           </div>
         </div>
@@ -517,9 +497,9 @@ function App() {
           <NavLink to="/about" onClick={handleMobileNavClick}>About</NavLink>
           <NavLink to="/gallery" onClick={handleMobileNavClick}>Gallery</NavLink>
           <NavLink to="/contact" onClick={handleMobileNavClick}>Contact</NavLink>
-          <button className="mobile-book-now">Book Now</button>
+          <button className="mobile-book-now">Book Free Assessment</button>
         </nav>
-        <button className="book-now desktop-only">Book Now</button>
+        <button className="book-now desktop-only">Book Free Assessment</button>
       </header>
 
       <Routes>
@@ -529,7 +509,7 @@ function App() {
             <section className="hero">
               <h1>Professional Cleaning </h1>
               <p>Bringing sparkle to your space, one room at a time</p>
-              <button className="get-quote">Get a Quote</button>
+              <button className="get-quote">Book Free Assessment</button>
             </section>
             <section className="services">
               <h2>My Services</h2>
@@ -538,19 +518,19 @@ function App() {
                   <div className="icon">🏠</div>
                   <h3>Residential Cleaning</h3>
                   <p>Thorough home cleaning tailored to your needs</p>
-                  <button>Learn More</button>
+                  <button>Book Free Assessment</button>
                 </div>
                 <div className="service-card">
                   <div className="icon">✨</div>
                   <h3>Deep Cleaning</h3>
                   <p>Intensive cleaning for those hard-to-reach areas</p>
-                  <button>Learn More</button>
+                  <button>Book Free Assessment</button>
                 </div>
                 <div className="service-card">
                   <div className="icon">🔄</div>
                   <h3>Move-in/Move-out Cleaning</h3>
                   <p>Ensure your new or old space is spotless</p>
-                  <button>Learn More</button>
+                  <button>Book Free Assessment</button>
                 </div>
               </div>
             </section>

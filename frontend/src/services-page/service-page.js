@@ -122,7 +122,7 @@ const ServicesPage = () => {
       <section className="cta-section">
         <h2>Ready to Get Started?</h2>
         <p>Book a consultation for your personalized cleaning quote</p>
-        <button className="cta-button">Schedule Assessment</button>
+        <button className="cta-button">Book Assessment</button>
       </section>
     </div>
   );

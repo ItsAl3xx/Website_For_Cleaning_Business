@@ -98,7 +98,7 @@ const AboutPage = () => {
       <section className="cta-section">
         <h2>Ready for a Spotless Space?</h2>
         <p>Get a free quote for your first cleaning service</p>
-        <button className="cta-button">Get Your Free Quote</button>
+        <button className="cta-button">Book Free Assessment</button>
       </section>
     </div>
   );

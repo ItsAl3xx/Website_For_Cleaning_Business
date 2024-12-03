@@ -1,8 +1,11 @@
 import React from 'react';
 import './about-page.css';
 import { FaAward, FaHandshake, FaHeart, FaLeaf, FaCheckCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="about-page">
       <section className="about-hero">
@@ -98,7 +101,12 @@ const AboutPage = () => {
       <section className="cta-section">
         <h2>Ready for a Spotless Space?</h2>
         <p>Get a free quote for your first cleaning service</p>
-        <button className="cta-button">Book Free Assessment</button>
+        <button 
+          className="cta-button" 
+          onClick={() => navigate('/assessment')}
+        >
+          Book Free Assessment
+        </button>
       </section>
     </div>
   );

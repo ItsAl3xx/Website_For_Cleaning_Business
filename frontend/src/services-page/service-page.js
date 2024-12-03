@@ -1,8 +1,11 @@
 import React from 'react';
 import './service-page.css';
 import { FaHome, FaBuilding, FaBroom, FaSprayCan, FaLeaf } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="services-page">
       <div className="services-hero">
@@ -23,7 +26,12 @@ const ServicesPage = () => {
               <li>Living spaces</li>
               <li>Bedrooms</li>
             </ul>
-            <button className="quote-btn">Get Quote</button>
+            <button 
+              className="quote-btn" 
+              onClick={() => navigate('/assessment')}
+            >
+              Get Quote
+            </button>
           </div>
 
           <div className="service-card">
@@ -36,7 +44,12 @@ const ServicesPage = () => {
               <li>Common living areas</li>
               <li>Balconies and patios</li>
             </ul>
-            <button className="quote-btn">Get Quote</button>
+            <button 
+              className="quote-btn" 
+              onClick={() => navigate('/assessment')}
+            >
+              Get Quote
+            </button>
           </div>
 
           <div className="service-card">
@@ -49,7 +62,12 @@ const ServicesPage = () => {
               <li>Bathroom sanitizing</li>
               <li>Living room refresh</li>
             </ul>
-            <button className="quote-btn">Get Quote</button>
+            <button 
+              className="quote-btn" 
+              onClick={() => navigate('/assessment')}
+            >
+              Get Quote
+            </button>
           </div>
 
           <div className="service-card">
@@ -62,7 +80,12 @@ const ServicesPage = () => {
               <li>Cabinet fronts and handles</li>
               <li>Light fixtures and fans</li>
             </ul>
-            <button className="quote-btn">Get Quote</button>
+            <button 
+              className="quote-btn" 
+              onClick={() => navigate('/assessment')}
+            >
+              Get Quote
+            </button>
           </div>
         </div>
       </section>
@@ -122,7 +145,12 @@ const ServicesPage = () => {
       <section className="cta-section">
         <h2>Ready to Get Started?</h2>
         <p>Book a consultation for your personalized cleaning quote</p>
-        <button className="cta-button">Book Assessment</button>
+        <button 
+          className="cta-button" 
+          onClick={() => navigate('/assessment')}
+        >
+          Book Assessment
+        </button>
       </section>
     </div>
   );

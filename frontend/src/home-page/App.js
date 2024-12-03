@@ -13,11 +13,12 @@ import 'swiper/css/pagination';
 import { FaStar, FaSync } from 'react-icons/fa';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import ServicesPage from '../services-page/service-page';
 import AboutPage from '../about-page/about-page';
 import ContactPage from '../contact-page/contact-page';
 import GalleryPage from '../gallery-page/gallery-page';
+import AssessmentPage from '../assessment-page/assessment-page';
 
 const BeforeAfterCard = ({ beforeImage, afterImage, title, location }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -465,6 +466,7 @@ const PricingGuide = () => (
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Add this useEffect to handle scroll restoration
   useEffect(() => {
@@ -497,9 +499,19 @@ function App() {
           <NavLink to="/about" onClick={handleMobileNavClick}>About</NavLink>
           <NavLink to="/gallery" onClick={handleMobileNavClick}>Gallery</NavLink>
           <NavLink to="/contact" onClick={handleMobileNavClick}>Contact</NavLink>
-          <button className="mobile-book-now">Book Free Assessment</button>
+          <button 
+            className="mobile-book-now" 
+            onClick={() => navigate('/assessment')}
+          >
+            Book Free Assessment
+          </button>
         </nav>
-        <button className="book-now desktop-only">Book Free Assessment</button>
+        <button 
+          className="book-now desktop-only" 
+          onClick={() => navigate('/assessment')}
+        >
+          Book Free Assessment
+        </button>
       </header>
 
       <Routes>
@@ -509,7 +521,12 @@ function App() {
             <section className="hero">
               <h1>Professional Cleaning </h1>
               <p>Bringing sparkle to your space, one room at a time</p>
-              <button className="get-quote">Book Free Assessment</button>
+              <button 
+                className="get-quote" 
+                onClick={() => navigate('/assessment')}
+              >
+                Book Free Assessment
+              </button>
             </section>
             <section className="services">
               <h2>My Services</h2>
@@ -518,19 +535,25 @@ function App() {
                   <div className="icon">🏠</div>
                   <h3>Residential Cleaning</h3>
                   <p>Thorough home cleaning tailored to your needs</p>
-                  <button>Book Free Assessment</button>
+                  <button onClick={() => navigate('/assessment')}>
+                    Book Free Assessment
+                  </button>
                 </div>
                 <div className="service-card">
                   <div className="icon">✨</div>
                   <h3>Deep Cleaning</h3>
                   <p>Intensive cleaning for those hard-to-reach areas</p>
-                  <button>Book Free Assessment</button>
+                  <button onClick={() => navigate('/assessment')}>
+                    Book Free Assessment
+                  </button>
                 </div>
                 <div className="service-card">
                   <div className="icon">🔄</div>
                   <h3>Move-in/Move-out Cleaning</h3>
                   <p>Ensure your new or old space is spotless</p>
-                  <button>Book Free Assessment</button>
+                  <button onClick={() => navigate('/assessment')}>
+                    Book Free Assessment
+                  </button>
                 </div>
               </div>
             </section>
@@ -606,6 +629,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/assessment" element={<AssessmentPage />} />
       </Routes>
 
       <footer className="footer">

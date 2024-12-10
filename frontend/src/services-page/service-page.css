@@ -183,30 +183,41 @@ h2 {
 
 @media (max-width: 768px) {
   .services-page {
-    padding: 1rem;
+    padding: 0;
   }
-  
+
   .services-hero {
-    padding: 3rem 1rem;
     margin-top: 60px;
+    padding: 4rem 1.5rem;
+    border-radius: 0;
   }
-  
-  .services-hero h1 {
-    font-size: 2rem;
-  }
-  
+
   .service-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1rem 0;
+    padding: 1rem;
+    gap: 1rem;
   }
-  
+
   .service-card {
+    margin: 0.5rem 0;
     padding: 1.5rem;
+    border-radius: 12px;
   }
-  
-  .process-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .cta-section {
+    margin: 2rem 1rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .features-grid {
+    padding: 1rem;
+    gap: 1rem;
   }
 }

@@ -187,10 +187,26 @@ h2 {
   }
   
   .services-hero {
-    padding: 2rem 0;
+    padding: 3rem 1rem;
+    margin-top: 60px;
   }
   
-  .service-grid, .process-container, .features-grid {
+  .services-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .service-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+  
+  .process-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

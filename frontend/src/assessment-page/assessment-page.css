@@ -183,13 +183,29 @@
 
 @media (max-width: 768px) {
   .assessment-page {
-    padding: 4rem 5% 3rem;
+    padding: 5rem 1rem 2rem;
   }
 
   .booking-container {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
+
+  .booking-form {
+    padding: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .submit-button {
+    min-height: 44px;
+  }
+
   .booking-sidebar {
     order: -1;
   }
